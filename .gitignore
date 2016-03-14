@@ -1,0 +1,10 @@
+*.log*
+*.data*
+/log/*
+
+# sbt specific
+target/
+
+# hidden file
+.*
+!.gitignore
