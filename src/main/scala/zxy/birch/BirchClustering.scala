@@ -102,10 +102,10 @@ object BirchClustering {
     birch.train(data, nIterations, memLimit, memCheckPeriod)
 
     val computedLabelsRDD = birch.predict(data)
-    //    computedLabelsRDD.saveAsTextFile(resFile)
+    computedLabelsRDD.saveAsTextFile(resFile)
 
-    val trueLabels = sc.textFile(labelFile).map(_.toInt).collect()
-    val ari = new FasterARI(computedLabelsRDD.collect(), trueLabels).adjustedRandIndex()
-    logger.info(f"Adjusted Rand Index: $ari%f\n")
+    // val trueLabels = sc.textFile(labelFile).map(_.toInt).collect()
+    // val ari = new FasterARI(computedLabelsRDD.collect(), trueLabels).adjustedRandIndex()
+    // logger.info(f"Adjusted Rand Index: $ari%f\n")
   }
 }
